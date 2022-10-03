@@ -11,7 +11,7 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 export IMG_VERSION="$(cat VERSION.txt)"
 ```
 ```zsh
-export PROJECT_ID="hello-world-352201"
+export PROJECT_ID="hello-world-xxx"
 ```
 ```zsh
 export REGION=us-central1 \
