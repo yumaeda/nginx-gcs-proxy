@@ -31,7 +31,7 @@ docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMG_NAME}:${I
 
 ## Run Locally
 ```zsh
-docker run --rm -d -p 8080:8080 "${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMG_NAME}:${IMG_VERSION}"
+docker run --rm -d -p 80:80 "${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMG_NAME}:${IMG_VERSION}"
 ```
 
 ## Reference
