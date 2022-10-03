@@ -29,14 +29,9 @@ docker build -t ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMG_NAME}
 docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMG_NAME}:${IMG_VERSION}
 ```
 
-## Build
+## Run Locally
 ```zsh
-docker build --no-cache -t yumaeda/nginx-gcs-proxy .
-```
-
-## Run
-```zsh
-docker run --rm -d -p 8080:8080 yumaeda/nginx-gcs-proxy
+docker run --rm -d -p 8080:8080 "${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMG_NAME}:${IMG_VERSION}"
 ```
 
 ## Reference
