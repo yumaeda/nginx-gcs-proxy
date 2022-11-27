@@ -35,5 +35,5 @@ docker run --rm -d -p 80:80 "${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY
 ```
 
 ## Reference
+- https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/
 - https://github.com/socialwifi/docker-nginx-gcs-proxy
-
