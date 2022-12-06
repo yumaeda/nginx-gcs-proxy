@@ -34,6 +34,11 @@ docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMG_NAME}:${I
 docker run --rm -d -p 80:80 "${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMG_NAME}:${IMG_VERSION}"
 ```
 
+## Test
+```zsh
+curl -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Mobile/15E148 Safari/604.1' http://localhost/
+```
+
 ## Reference
 - https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/
 - https://github.com/socialwifi/docker-nginx-gcs-proxy
