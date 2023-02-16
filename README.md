@@ -37,6 +37,7 @@ curl -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) Appl
 ```
 
 ## Reference
+- https://zenn.dev/tminasen/scraps/721e38de120037
 - https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/
 - https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-http/
 - https://github.com/socialwifi/docker-nginx-gcs-proxy
