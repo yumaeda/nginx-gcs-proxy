@@ -1,0 +1,40 @@
+name: push Docker image to Artifact Registry
+
+on:
+  push:
+    branches:
+      - main
+env:
+  # GCPのPROJECT_ID
+  PROJECT_ID: PROJECT_ID
+  # Artifact RegistryのRepository名
+  REPOSITORY: test-repo
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      # 必ずauthの前に必要
+      - uses: actions/checkout@v3
+      - id: 'auth'
+        name: 'auth gcp'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          # 事前準備で作成した`Workload Identity Providerのリソース名`と`Service Account`を指定する
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+      - id: 'setup'
+        name: 'Setup Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
+
+      - name: 'Authorize Docker push'
+        # Artifact Registryにpushできるように認証行う
+        # Container Registryのときには不要だったArtifact RegistryではRegionの指定が必須
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
+      - name: build and push
+        run: |-
+          docker build -t us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/sample:${{ github.sha }} ./
+          docker push us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/sample:${{ github.sha }}
